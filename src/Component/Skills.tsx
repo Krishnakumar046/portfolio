@@ -1,5 +1,7 @@
+import Lottie from "lottie-react";
 import { Code2, Layers, Smartphone, Star } from "lucide-react";
 import { useState } from "react";
+import { skillJson } from "./Lottiefiles/skilljson";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -224,6 +226,11 @@ const Skills = () => {
               </div>
             );
           })}
+          <Lottie
+            animationData={skillJson}
+            loop={true}
+            className="w-48 h-56 hover:w-72 hover:h-[420px] transition-all duration-500"
+          />
         </div>
       </div>
     </section>

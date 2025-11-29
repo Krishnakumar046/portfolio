@@ -14,7 +14,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { id: "hero", label: "Home", icon: User },
+    { id: "summary", label: "Home", icon: User },
     { id: "about", label: "About", icon: BookOpen },
     { id: "skills", label: "Skills", icon: Zap },
     { id: "projects", label: "Projects", icon: Trophy },
