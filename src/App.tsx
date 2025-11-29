@@ -30,9 +30,9 @@ function App() {
       <Summary />
       <About />
       <Skills />
-      {/* <Experience />
-      <Projects /> */}
-      <ExperienceAndProjects />
+      <Experience />
+      <Projects />
+      {/* <ExperienceAndProjects /> */}
     </>
   );
 }

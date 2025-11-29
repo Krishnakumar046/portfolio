@@ -25,6 +25,28 @@ const Experience = () => {
         "GraphQL",
       ],
     },
+    {
+      title: "Senior Frontend Developer",
+      company: "TechCorp Inc.",
+      location: "San Francisco, CA",
+      period: "2022 - Present",
+      type: "Full-time",
+      description:
+        "Led frontend development for multiple high-traffic web applications serving over 1M users daily.",
+      achievements: [
+        "Improved application performance by 40% through code optimization and lazy loading",
+        "Built reusable component library used across 5+ products",
+        "Mentored 3 junior developers and conducted technical interviews",
+        "Implemented CI/CD pipeline reducing deployment time by 60%",
+      ],
+      technologies: [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "GraphQL",
+      ],
+    },
   ];
 
   return (

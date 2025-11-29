@@ -1,152 +1,95 @@
-import React, { useState } from "react";
-import { Code, Smartphone, Database, Wrench, Zap, Palette } from "lucide-react";
+import { Code2, Layers, Smartphone, Star } from "lucide-react";
+import { useState } from "react";
 
 const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("frontend");
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
-  const skillCategories = {
-    frontend: {
-      title: "Frontend Development",
-      icon: Code,
-      color: "violet",
-      skills: [
-        {
-          name: "React & Next.js",
-          level: 95,
-          description: "Building scalable web applications",
-        },
-        {
-          name: "TypeScript",
-          level: 90,
-          description: "Type-safe JavaScript development",
-        },
-        {
-          name: "Tailwind CSS",
-          level: 92,
-          description: "Utility-first CSS framework",
-        },
-        {
-          name: "JavaScript ES6+",
-          level: 94,
-          description: "Modern JavaScript features",
-        },
-      ],
+  const skills = [
+    {
+      name: "React.js",
+      category: "Frontend",
+      icon: Code2,
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      proficiency: 95,
+      description: "Building interactive UIs with component-based architecture",
+      experience: "3+ years",
+      useCase: "Single Page Applications, Component Libraries",
     },
-
-    backend: {
-      title: "Backend & Database",
-      icon: Database,
-      color: "blue",
-      skills: [
-        { name: "Node.js", level: 85, description: "Server-side JavaScript" },
-        { name: "MongoDB", level: 83, description: "NoSQL database solutions" },
-        { name: "GraphQL", level: 78, description: "Query language for APIs" },
-      ],
+    {
+      name: "Next.js",
+      category: "Framework",
+      icon: Layers,
+      color: "from-slate-700 to-slate-900",
+      bgColor: "bg-slate-50",
+      borderColor: "border-slate-200",
+      proficiency: 90,
+      description: "Full-stack React framework with SSR and static generation",
+      experience: "2+ years",
+      useCase: "Production Web Apps, E-commerce Platforms",
     },
-    tools: {
-      title: "Tools & DevOps",
-      icon: Wrench,
-      color: "emerald",
-      skills: [
-        {
-          name: "Git & GitHub",
-          level: 95,
-          description: "Version control & collaboration",
-        },
-        { name: "Docker", level: 82, description: "Containerization platform" },
-        { name: "AWS", level: 78, description: "Cloud computing services" },
-        {
-          name: "Webpack/Vite",
-          level: 88,
-          description: "Build tools & bundlers",
-        },
-      ],
+    {
+      name: "JavaScript",
+      category: "Language",
+      icon: Code2,
+      color: "from-yellow-400 to-amber-500",
+      bgColor: "bg-yellow-50",
+      borderColor: "border-yellow-200",
+      proficiency: 98,
+      description: "Core programming language for web development",
+      experience: "5+ years",
+      useCase: "Frontend & Backend Development, Automation",
     },
-    design: {
-      title: "Design & UX",
-      icon: Palette,
-      color: "pink",
-      skills: [
-        { name: "Figma", level: 92, description: "UI/UX design & prototyping" },
-        {
-          name: "User Research",
-          level: 80,
-          description: "Understanding user needs",
-        },
-        {
-          name: "Prototyping",
-          level: 88,
-          description: "Interactive design mockups",
-        },
-      ],
+    {
+      name: "TypeScript",
+      category: "Language",
+      icon: Code2,
+      color: "from-blue-600 to-blue-800",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      proficiency: 92,
+      description: "Typed JavaScript for scalable and maintainable code",
+      experience: "3+ years",
+      useCase: "Large Codebases, Team Projects",
     },
-    performance: {
-      title: "Performance & Testing",
-      icon: Zap,
-      color: "amber",
-      skills: [
-        {
-          name: "Web Performance",
-          level: 90,
-          description: "Optimization techniques",
-        },
-        {
-          name: "Jest & Testing Library",
-          level: 87,
-          description: "Unit & integration testing",
-        },
-        { name: "Lighthouse", level: 85, description: "Performance auditing" },
-        {
-          name: "SEO Optimization",
-          level: 83,
-          description: "Search engine optimization",
-        },
-      ],
+    {
+      name: "Tailwind CSS",
+      category: "Styling",
+      icon: Layers,
+      color: "from-teal-400 to-cyan-500",
+      bgColor: "bg-teal-50",
+      borderColor: "border-teal-200",
+      proficiency: 94,
+      description: "Utility-first CSS framework for rapid UI development",
+      experience: "3+ years",
+      useCase: "Responsive Design, Modern Interfaces",
     },
-  };
-
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      violet: {
-        bg: "bg-violet-500",
-        text: "text-violet-600",
-        border: "border-violet-200",
-        hover: "hover:bg-violet-50",
-      },
-      indigo: {
-        bg: "bg-indigo-500",
-        text: "text-indigo-600",
-        border: "border-indigo-200",
-        hover: "hover:bg-indigo-50",
-      },
-      blue: {
-        bg: "bg-blue-500",
-        text: "text-blue-600",
-        border: "border-blue-200",
-        hover: "hover:bg-blue-50",
-      },
-      emerald: {
-        bg: "bg-emerald-500",
-        text: "text-emerald-600",
-        border: "border-emerald-200",
-        hover: "hover:bg-emerald-50",
-      },
-      pink: {
-        bg: "bg-pink-500",
-        text: "text-pink-600",
-        border: "border-pink-200",
-        hover: "hover:bg-pink-50",
-      },
-      amber: {
-        bg: "bg-amber-500",
-        text: "text-amber-600",
-        border: "border-amber-200",
-        hover: "hover:bg-amber-50",
-      },
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.violet;
-  };
-
+    {
+      name: "Node.js",
+      category: "Backend",
+      icon: Code2,
+      color: "from-green-600 to-emerald-600",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
+      proficiency: 88,
+      description: "Server-side JavaScript runtime for backend services",
+      experience: "2+ years",
+      useCase: "REST APIs, Real-time Applications",
+    },
+    {
+      name: "Flutter",
+      category: "Mobile",
+      icon: Smartphone,
+      color: "from-sky-400 to-blue-600",
+      bgColor: "bg-sky-50",
+      borderColor: "border-sky-200",
+      proficiency: 85,
+      description: "Cross-platform mobile app development framework",
+      experience: "2+ years",
+      useCase: "iOS & Android Apps, Cross-platform Solutions",
+    },
+  ];
   return (
     <section
       id="skills"
@@ -165,96 +108,122 @@ const Skills = () => {
             to create amazing digital experiences
           </p>
         </div>
-
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {Object.entries(skillCategories).map(([key, category]) => {
-            const Icon = category.icon;
-            const colors = getColorClasses(category.color);
-            const isActive = activeCategory === key;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {skills.map((skill) => {
+            const Icon = skill.icon;
+            const isHovered = hoveredSkill === skill.name;
 
             return (
-              <button
-                key={key}
-                onClick={() => setActiveCategory(key)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  isActive
-                    ? `${colors.bg} text-white shadow-lg`
-                    : `bg-white ${colors.text} ${colors.hover} shadow-md hover:shadow-lg`
-                }`}
+              <div
+                key={skill.name}
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
+                className="group relative w-48 h-56 hover:w-72 hover:h-[420px] transition-all duration-500 cursor-pointer"
               >
-                <Icon className="w-5 h-5" />
-                <span className="hidden sm:inline">{category.title}</span>
-                <span className="sm:hidden">
-                  {category.title.split(" ")[0]}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+                {/* Outer Gradient Border */}
+                <div
+                  className={`absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br ${skill.color} opacity-60 group-hover:opacity-100 transition-all duration-500`}
+                />
 
-        {/* Skills Display */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
-          <div className="mb-8">
-            <div className="flex items-center space-x-3 mb-4">
-              {React.createElement(
-                skillCategories[activeCategory as keyof typeof skillCategories]
-                  .icon,
-                {
-                  className: `w-8 h-8 ${
-                    getColorClasses(
-                      skillCategories[
-                        activeCategory as keyof typeof skillCategories
-                      ].color
-                    ).text
-                  }`,
-                }
-              )}
-              <h3 className="text-2xl font-bold text-gray-900">
-                {
-                  skillCategories[
-                    activeCategory as keyof typeof skillCategories
-                  ].title
-                }
-              </h3>
-            </div>
-          </div>
+                {/* Card Container */}
+                <div className="relative w-full h-full rounded-3xl bg-white/20 backdrop-blur-xl shadow-lg overflow-hidden transition-all duration-500">
+                  {/* Glow on hover */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-all duration-500`}
+                  />
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories[
-              activeCategory as keyof typeof skillCategories
-            ].skills.map((skill, index) => {
-              const colors = getColorClasses(
-                skillCategories[activeCategory as keyof typeof skillCategories]
-                  .color
-              );
+                  {/* CONTENT */}
+                  <div className="w-full h-full p-5 flex flex-col transition-all duration-500">
+                    {!isHovered ? (
+                      /* 🌟 SMALL CARD (DEFAULT) */
+                      <div className="flex flex-col items-center justify-center text-center gap-4">
+                        {/* Icon */}
+                        <div
+                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center shadow-xl transition-all duration-500 group-hover:scale-125`}
+                        >
+                          <Icon className="w-7 h-7 text-white" />
+                        </div>
 
-              return (
-                <div key={index} className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h4 className="font-semibold text-gray-900">
-                        {skill.name}
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        {skill.description}
-                      </p>
-                    </div>
-                    <span className={`text-sm font-bold ${colors.text}`}>
-                      {skill.level}%
-                    </span>
-                  </div>
+                        <h3 className="text-lg font-semibold text-gray-800">
+                          {skill.name}
+                        </h3>
 
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div
-                      className={`h-3 rounded-full ${colors.bg} transition-all duration-1000 ease-out`}
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
+                        <span
+                          className={`px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${skill.color} text-white`}
+                        >
+                          {skill.category}
+                        </span>
+                      </div>
+                    ) : (
+                      /* 🌟 FULL INFO ON HOVER */
+                      <div className="flex flex-col h-full">
+                        {/* Header */}
+                        <div className="flex items-center justify-between">
+                          <div
+                            className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center shadow-xl`}
+                          >
+                            <Icon className="w-7 h-7 text-white" />
+                          </div>
+
+                          <Star
+                            className={`w-7 h-7 ${
+                              skill.proficiency > 90
+                                ? "text-yellow-400 fill-yellow-400"
+                                : "text-gray-300"
+                            }`}
+                          />
+                        </div>
+
+                        <h3 className="text-xl font-bold text-gray-900 mt-4">
+                          {skill.name}
+                        </h3>
+
+                        <p className="text-sm text-gray-700 mt-3 leading-relaxed">
+                          {skill.description}
+                        </p>
+
+                        <div className="mt-4">
+                          <p className="text-sm font-bold text-gray-800">
+                            Experience
+                          </p>
+                          <p className="text-sm text-gray-700">
+                            {skill.experience}
+                          </p>
+                        </div>
+
+                        <div className="mt-4">
+                          <p className="text-sm font-bold text-gray-800">
+                            Use Cases
+                          </p>
+                          <p className="text-sm text-gray-700">
+                            {skill.useCase}
+                          </p>
+                        </div>
+
+                        {/* Bottom Proficiency Bar */}
+                        <div className="mt-auto pt-4 border-t border-gray-300">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-xs text-gray-700 font-semibold">
+                              Proficiency
+                            </span>
+                            <span className="text-xs font-bold text-gray-900">
+                              {skill.proficiency}%
+                            </span>
+                          </div>
+                          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div
+                              className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-700`}
+                              style={{ width: `${skill.proficiency}%` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
