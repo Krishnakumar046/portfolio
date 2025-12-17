@@ -1,224 +1,220 @@
-import React, { useState } from "react";
-import { ExternalLink, Github, Eye, Filter } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const projects = [
+  {
+    title: "STAND FOR TAMILNADU",
+    duration: "Feb 2025 – Mar 2025",
+    tech: ["Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
+    points: [
+      "Built a client-side social sharing feature for a public-facing Next.js platform.",
+      "Implemented dynamic Open Graph thumbnails and meta descriptions for rich social previews.",
+    ],
+  },
+  {
+    title: "HAWKEYE",
+    duration: "Mar 2025 – Jun 2025",
+    tech: ["Next.js", "Redux", "TypeScript", "Tailwind CSS", "Leaflet"],
+    points: [
+      "Developed the application end-to-end with a focus on performance and scalability.",
+      "Integrated interactive maps using Leaflet for dynamic geospatial visualization.",
+      "Enabled offline access using Service Workers for previously visited routes.",
+    ],
+  },
+  {
+    title: "ELECTION GPT",
+    duration: "Jul 2025 – Sep 2025",
+    tech: ["React", "Zustand", "TypeScript", "Tailwind CSS"],
+    points: [
+      "Built an election-focused AI assistant for answering election-related queries.",
+      "Rendered AI responses including text, charts, bar graphs, and pie charts.",
+      "Migrated a legacy React application to Vite for improved performance.",
+    ],
+  },
+  {
+    title: "OTN TABLE",
+    duration: "Sep 2025 – Present",
+    tech: ["React", "TypeScript", "AG Grid", "Tailwind CSS"],
+    points: [
+      "Built a dynamic data table interface using AG Grid.",
+      "Implemented approval workflows with real-time sync to a mobile application.",
+      "Added CRUD functionality for managing table rows efficiently.",
+    ],
+  },
+];
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description:
-        "A modern e-commerce platform built with React, TypeScript, and Stripe integration. Features include real-time inventory, advanced filtering, and seamless checkout experience.",
-      image:
-        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "web",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Stripe",
-        "Node.js",
-      ],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image:
-        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "mobile",
-      technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "Weather Dashboard",
-      description:
-        "A beautiful weather dashboard with interactive maps, detailed forecasts, and location-based recommendations.",
-      image:
-        "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "web",
-      technologies: ["Vue.js", "Chart.js", "OpenWeather API", "SCSS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      description:
-        "A responsive portfolio website showcasing creative design and smooth animations with modern web technologies.",
-      image:
-        "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "design",
-      technologies: ["React", "Framer Motion", "Tailwind CSS", "Vite"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "Fitness Tracking App",
-      description:
-        "A comprehensive fitness tracking mobile app with workout plans, progress tracking, and social features.",
-      image:
-        "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "mobile",
-      technologies: ["Flutter", "Firebase", "HealthKit", "Google Fit"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true,
-    },
-    {
-      id: 6,
-      title: "Design System",
-      description:
-        "A comprehensive design system with reusable components, documentation, and design tokens for consistent UI development.",
-      image:
-        "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "design",
-      technologies: ["Storybook", "React", "Figma", "Design Tokens"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-    },
-  ];
+  // Clear refs before rendering
+  itemRefs.current = [];
 
-  const filters = [
-    { key: "all", label: "All Projects" },
-    { key: "web", label: "Web Apps" },
-    { key: "mobile", label: "Mobile Apps" },
-    { key: "design", label: "Design" },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = itemRefs.current.indexOf(
+            entry.target as HTMLDivElement
+          );
+          if (index === -1) return;
 
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeFilter);
+          // Only add, do NOT remove
+          setVisibleItems((prev) =>
+            prev.includes(index) ? prev : [...prev, index]
+          );
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    itemRefs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section
+      id="projects"
+      className="py-15 bg-gradient-to-br from-slate-50 to-gray-100"
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        {/* HEADER */}
+        <div className="text-center mb-24">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-              Projects
+            Professional{" "}
+            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              Experience
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            A showcase of my recent work and the projects I'm most proud of
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Selected projects showcasing real-world problem solving, performance
+            optimization, and scalable architecture.
           </p>
+        </div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {filters.map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeFilter === filter.key
-                    ? "bg-violet-600 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-violet-50 hover:text-violet-600"
-                }`}
-              >
-                <Filter className="w-4 h-4" />
-                <span>{filter.label}</span>
-              </button>
-            ))}
+        {/* DESKTOP */}
+        <div className="hidden md:block relative">
+          <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-blue-500 via-blue-300 to-transparent"></div>
+
+          <div className="space-y-5">
+            {projects.map((project, index) => {
+              const isVisible = visibleItems.includes(index);
+              const isLeft = index % 2 === 0;
+
+              return (
+                <div
+                  key={index}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
+                  className={`relative flex ${
+                    isLeft ? "justify-start" : "justify-end"
+                  }`}
+                >
+                  {/* DOT */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-8 w-5 h-5 bg-blue-600 rounded-full ring-4 ring-blue-100 z-10"></div>
+
+                  {/* CARD */}
+                  <div
+                    className={`w-[46%] transition-all duration-700 ease-out transform ${
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"
+                    }`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all">
+                      <div className="flex justify-between items-start mb-4">
+                        <h3 className="text-2xl font-semibold text-teal-600">
+                          {project.title}
+                        </h3>
+                        <span className="text-sm text-gray-500">
+                          {project.duration}
+                        </span>
+                      </div>
+
+                      <ul className="space-y-3 text-gray-700 text-[15px] leading-relaxed">
+                        {project.points.map((point, i) => (
+                          <li key={i} className="flex">
+                            <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-3 mt-6">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
-                project.featured ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
-            >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        {/* MOBILE */}
+        <div className="md:hidden relative">
+          <div className="absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-blue-600 to-blue-300"></div>
 
-                {/* Overlay Actions */}
-                <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <a
-                    href={project.liveUrl}
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-violet-600 hover:bg-violet-600 hover:text-white transition-colors duration-200 shadow-lg"
-                  >
-                    <Eye className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-700 hover:text-white transition-colors duration-200 shadow-lg"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                </div>
+          <div className="space-y-8 pl-16">
+            {projects.map((project, index) => {
+              const isVisible = visibleItems.includes(index);
 
-                {/* Featured Badge */}
-                {project.featured && (
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Featured
+              return (
+                <div
+                  key={index}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
+                  className={`transition-all duration-700 ease-out ${
+                    isVisible
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 translate-x-6"
+                  }`}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <div className="absolute -left-2.5 top-6 w-5 h-5 bg-blue-600 rounded-full ring-4 ring-white shadow"></div>
+
+                  <div className="bg-white rounded-xl p-5 shadow-md border border-gray-200">
+                    <h3 className="text-lg font-semibold text-teal-600 mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 mb-3">
+                      {project.duration}
+                    </p>
+
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      {project.points.map((point, i) => (
+                        <li key={i} className="flex">
+                          <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                )}
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-violet-600 transition-colors duration-200">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-violet-50 text-violet-700 text-sm rounded-full border border-violet-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
                 </div>
-
-                {/* Action Links */}
-                <div className="flex items-center space-x-4">
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center space-x-2 text-violet-600 hover:text-violet-700 font-medium transition-colors duration-200"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Live Demo</span>
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    className="flex items-center space-x-2 text-gray-600 hover:text-gray-700 font-medium transition-colors duration-200"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>Code</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
