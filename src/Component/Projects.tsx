@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import ProjectCard from "./animated/ProjectCard";
+import Lottie from "lottie-react";
+import { RunningJson } from "./Lottiefiles/runningjson";
 
 const projects = [
   {
+    sno: "01",
     title: "STAND FOR TAMILNADU",
     duration: "Feb 2025 – Mar 2025",
     tech: ["Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
@@ -11,6 +15,7 @@ const projects = [
     ],
   },
   {
+    sno: "02",
     title: "HAWKEYE",
     duration: "Mar 2025 – Jun 2025",
     tech: ["Next.js", "Redux", "TypeScript", "Tailwind CSS", "Leaflet"],
@@ -21,6 +26,7 @@ const projects = [
     ],
   },
   {
+    sno: "03",
     title: "ELECTION GPT",
     duration: "Jul 2025 – Sep 2025",
     tech: ["React", "Zustand", "TypeScript", "Tailwind CSS"],
@@ -31,6 +37,7 @@ const projects = [
     ],
   },
   {
+    sno: "04",
     title: "OTN TABLE",
     duration: "Sep 2025 – Present",
     tech: ["React", "TypeScript", "AG Grid", "Tailwind CSS"],
@@ -79,7 +86,7 @@ const Projects = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* HEADER */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-5">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Professional{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
@@ -93,70 +100,32 @@ const Projects = () => {
         </div>
 
         {/* DESKTOP */}
+        <div className="w-50 h-36 opacity-70">
+          <Lottie animationData={RunningJson} loop={true} />
+        </div>
         <div className="hidden md:block relative">
-          <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-blue-500 via-blue-300 to-transparent"></div>
+          {/* TOP HORIZONTAL LINE */}
+          <div className="absolute -top-1 left-0 w-full h-[2px] bg-gray-300" />
 
-          <div className="space-y-5">
-            {projects.map((project, index) => {
-              const isVisible = visibleItems.includes(index);
-              const isLeft = index % 2 === 0;
+          <div className="grid grid-cols-4 gap-10 pt-16">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+                className="relative flex justify-center"
+              >
+                {/* VERTICAL HANGING LINE */}
+                <div className="absolute -top-15 left-1/2 -translate-x-1/2 w-[2px] h-16 bg-gray-300" />
 
-              return (
-                <div
-                  key={index}
-                  ref={(el) => {
-                    itemRefs.current[index] = el;
-                  }}
-                  className={`relative flex ${
-                    isLeft ? "justify-start" : "justify-end"
-                  }`}
-                >
-                  {/* DOT */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-8 w-5 h-5 bg-blue-600 rounded-full ring-4 ring-blue-100 z-10"></div>
+                {/* DOT (Optional – looks premium) */}
+                <div className="absolute -top-18 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-violet-500 border-2 border-gray-500" />
 
-                  {/* CARD */}
-                  <div
-                    className={`w-[46%] transition-all duration-700 ease-out transform ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all">
-                      <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-2xl font-semibold text-teal-600">
-                          {project.title}
-                        </h3>
-                        <span className="text-sm text-gray-500">
-                          {project.duration}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-3 text-gray-700 text-[15px] leading-relaxed">
-                        {project.points.map((point, i) => (
-                          <li key={i} className="flex">
-                            <span className="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-3 mt-6">
-                        {project.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                {/* CARD */}
+                <ProjectCard project={project} />
+              </div>
+            ))}
           </div>
         </div>
 
