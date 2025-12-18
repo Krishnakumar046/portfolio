@@ -1,8 +1,6 @@
-import React from "react";
 import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
-import { maintainanceJson } from "./Lottiefiles/maintenance";
-import { OfficeJson } from "./Lottiefiles/office";
+import { OfficeJson } from "./Lottiefiles/OfficeJson";
 
 const Experience = () => {
   const experiences = [

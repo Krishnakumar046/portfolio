@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
-import { DeveloperGif } from "./Lottiefiles/developergif";
+import { DeveloperGif } from "./Lottiefiles/DeveloperGifJson";
 import { ArrowDown, Download, Github, Linkedin, Twitter } from "lucide-react";
-import { manJson } from "./Lottiefiles/manjson";
+import { manJson } from "./Lottiefiles/ManJson";
 
 const Summary = () => {
   return (
@@ -14,7 +14,7 @@ const Summary = () => {
           <div className="text-justify">
             <div className="mb-8">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 p-1">
-                <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center mr-0.5">
                   <div className="w-28 h-28 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 flex items-center justify-center overflow-visible">
                     <Lottie
                       animationData={manJson}
