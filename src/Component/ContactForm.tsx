@@ -9,16 +9,19 @@ const ContactForm = () => {
       label: "Email",
       icon: Mail,
       text: "krishnakrish6046@gmail.com",
+      color: "text-indigo-600",
     },
     {
       label: "Phone",
       icon: Phone,
       text: "+91 9538976046",
+      color: "text-green-600",
     },
     {
       label: "Location",
       icon: Locate,
       text: "Chennai, Tamil Nadu, India",
+      color: "text-gray-600",
     },
   ];
 
@@ -48,19 +51,21 @@ const ContactForm = () => {
             </div>
 
             {/* Contact Methods */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               {contactMethods.map((method, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 rounded-xl bg-white p-4 border border-gray-100 shadow-sm"
+                  className="group flex items-center gap-4 rounded-xl px-4 py-3 transition-all duration-200 hover:bg-gray-50"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                    <method.icon className="h-6 w-6" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600 group-hover:scale-105 transition">
+                    <method.icon className={`h-5 w-5 ${method.color}`} />
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-500">{method.label}</p>
-                    <p className="text-base font-medium text-gray-800">
+                    <p className="text-xs uppercase tracking-wide text-gray-400">
+                      {method.label}
+                    </p>
+                    <p className="text-sm sm:text-base font-medium text-gray-800">
                       {method.text}
                     </p>
                   </div>

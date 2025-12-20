@@ -1,10 +1,10 @@
 import { Code2, Palette, Rocket, Heart, Coffee, Music } from "lucide-react";
+import { LazyMotion, domAnimation, m } from "motion/react";
 
 const About = () => {
   const stats = [
-    { number: "50+", label: "Projects Completed" },
-    { number: "3+", label: "Years Experience" },
-    { number: "20+", label: "Happy Clients" },
+    { number: "5+", label: "Projects Completed" },
+    { number: "1+", label: "Years Experience" },
     { number: "∞", label: "Cups of Coffee" },
   ];
 
@@ -34,24 +34,49 @@ const About = () => {
             </div>
 
             <div className="space-y-6 text-gray-700 leading-relaxed">
-              <p className="text-lg">
-                I'm a creative frontend developer with a passion for building
-                exceptional digital experiences. With over 3 years in the
-                industry, I specialize in React, TypeScript, and modern web
-                technologies.
-              </p>
-              <p>
-                My journey started with a Computer Science degree from UC
-                Berkeley, where I discovered my love for the intersection of
-                technology and design. I believe that great software should not
-                only function flawlessly but also delight users with intuitive
-                and beautiful interfaces.
-              </p>
-              <p>
-                When I'm not coding, you'll find me exploring new design trends,
-                brewing the perfect cup of coffee, or producing electronic music
-                in my home studio.
-              </p>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <LazyMotion features={domAnimation}>
+                  <m.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <p className="text-lg">
+                      I’m a Front-End Developer focused on building scalable,
+                      high-performance web applications using modern JavaScript
+                      technologies. My core expertise lies in React.js, Next.js,
+                      TypeScript, and Tailwind CSS, where I create responsive,
+                      accessible, and user-centric interfaces.
+                    </p>
+
+                    <p>
+                      I have hands-on experience developing and maintaining
+                      end-to-end web applications, working across
+                      component-based architectures, API integrations, and
+                      modern state management solutions. I actively contribute
+                      to improving UI/UX, optimizing performance, and ensuring
+                      clean, reusable code across projects.
+                    </p>
+
+                    <p>
+                      My technical skill set includes working with Redux,
+                      Zustand, and Context API for state management, integrating
+                      third-party libraries, implementing dynamic data flows,
+                      and enabling features such as offline support, social
+                      sharing, and interactive visualizations.
+                    </p>
+
+                    <p>
+                      I hold a Bachelor’s degree in Electronics and
+                      Communication Engineering from Anna University. My
+                      academic foundation, combined with practical development
+                      experience, allows me to approach problem-solving with
+                      both technical depth and real-world understanding.
+                    </p>
+                  </m.div>
+                </LazyMotion>
+              </div>
             </div>
 
             {/* Stats */}

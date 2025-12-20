@@ -1,6 +1,8 @@
 import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
 import { OfficeJson } from "./Lottiefiles/OfficeJson";
+import { motion, easeInOut } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const Experience = () => {
   const experiences = [
@@ -53,6 +55,16 @@ integration.`,
     },
   ];
 
+  const cardVariants: Variants = {
+    hiddenLeft: { opacity: 0, x: -200 },
+    hiddenRight: { opacity: 0, x: 200 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: easeInOut }, // ✅ works
+    },
+  };
+
   return (
     <section id="experience" className="py-20 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,17 +94,29 @@ integration.`,
                   </div>
 
                   <div className="md:ml-20">
-                    <div className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <motion.div
+                      variants={cardVariants}
+                      initial={index % 2 === 0 ? "hiddenLeft" : "hiddenRight"}
+                      whileInView="visible"
+                      viewport={{ once: false, amount: 0.3 }}
+                      className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative"
+                    >
+                      {/* Header */}
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                         <div className="mb-4 lg:mb-0">
                           <h3 className="text-xl font-bold text-slate-800 mb-2">
                             {exp.title}
                           </h3>
-                          <p className="text-teal-600 font-semibold text-lg flex items-center">
-                            {exp.company}
+                          <a
+                            href="https://www.thepenindia.com/#carousel"
+                            target="blank"
+                            className="text-teal-600 font-semibold text-lg flex items-center"
+                          >
+                            {exp.company}{" "}
                             <ExternalLink className="w-4 h-4 ml-2 opacity-60" />
-                          </p>
+                          </a>
                         </div>
+
                         <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
                           <div className="flex items-center text-gray-600">
                             <MapPin className="w-4 h-4 mr-1" />
@@ -108,27 +132,33 @@ integration.`,
                         </div>
                       </div>
 
+                      {/* Description */}
                       <p className="text-gray-700 mb-6 leading-relaxed">
                         {exp.description}
                       </p>
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-3">
-                          Key Achievements
-                        </h4>
-                        <ul className="space-y-2">
-                          {exp.achievements.map((achievement, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start text-gray-600 text-sm"
-                            >
-                              <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
 
-                      <div>
+                      {/* Achievements */}
+                      {exp.achievements.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="text-sm font-semibold text-gray-700 mb-3">
+                            Key Achievements
+                          </h4>
+                          <ul className="space-y-2">
+                            {exp.achievements.map((achievement, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start text-gray-600 text-sm"
+                              >
+                                <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                {achievement}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Technologies */}
+                      {exp.technologies.length > 0 && (
                         <div>
                           <h4 className="text-sm font-semibold text-gray-700 mb-3">
                             Technologies Used
@@ -144,13 +174,15 @@ integration.`,
                             ))}
                           </div>
                         </div>
-                        {index % 2 == 1 && (
-                          <div className="absolute -top-62 md:-bottom-60 -right-7 md:right-15 w-96 h-64 opacity-10 md:opacity-20 pointer-events-none">
-                            <Lottie animationData={OfficeJson} loop={true} />
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                      )}
+
+                      {/* Lottie Illustration for odd cards */}
+                      {index % 2 === 1 && (
+                        <div className="absolute -top-62 md:-bottom-60 -right-7 md:right-15 w-96 h-64 opacity-10 md:opacity-20 pointer-events-none">
+                          <Lottie animationData={OfficeJson} loop={true} />
+                        </div>
+                      )}
+                    </motion.div>
                   </div>
                 </div>
               ))}
