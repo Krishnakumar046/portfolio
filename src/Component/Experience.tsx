@@ -54,7 +54,7 @@ integration.`,
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-20 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -63,7 +63,7 @@ integration.`,
               Experience
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg font-medium text-gray-600 max-w-2xl mx-auto">
             My professional journey in frontend development and the impact I've
             made
           </p>

@@ -6,7 +6,7 @@ import About from "./Component/About";
 import Skills from "./Component/Skills";
 import Projects from "./Component/Projects";
 import Experience from "./Component/Experience";
-import ExperienceAndProjects from "./Component/ExperienceAndProject";
+import ContactForm from "./Component/ContactForm";
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -32,7 +32,7 @@ function App() {
       <Skills />
       <Experience />
       <Projects />
-      {/* <ExperienceAndProjects /> */}
+      <ContactForm />
     </>
   );
 }

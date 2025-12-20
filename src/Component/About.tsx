@@ -1,4 +1,3 @@
-import React from "react";
 import { Code2, Palette, Rocket, Heart, Coffee, Music } from "lucide-react";
 
 const About = () => {
@@ -19,7 +18,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}

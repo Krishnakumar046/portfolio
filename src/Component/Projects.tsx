@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./animated/ProjectCard";
 import Lottie from "lottie-react";
 import { RunningJson } from "./Lottiefiles/RunningJson";
+import { ExperiencesJson } from "./Lottiefiles/ExperienceChat";
 
 const projects = [
   {
@@ -82,11 +83,11 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-15 bg-gradient-to-br from-slate-50 to-gray-100"
+      className="py-15 bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
         {/* HEADER */}
-        <div className="text-center mb-5">
+        <div className="hidden md:block text-center mb-5">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Professional{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
@@ -98,9 +99,23 @@ const Projects = () => {
             optimization, and scalable architecture.
           </p>
         </div>
-
+        <div className=" md:hidden relative text-start ml-3 md:ml-0 md:text-center mb-5">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Professional{" "}
+            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              Experience
+            </span>
+          </h2>
+          <p className="text-lg font-medium text-gray-600 max-w-3xl mx-auto">
+            Selected projects showcasing real-world problem solving, performance
+            optimization, and scalable architecture.
+          </p>
+          <div className="absolute top-16 right-0 w-72 h-56 opacity-50 pointer-events-none select-none">
+            <Lottie animationData={ExperiencesJson} loop={true} />
+          </div>
+        </div>
         {/* DESKTOP */}
-        <div className="w-50 h-36 opacity-70">
+        <div className=" hidden md:block w-50 h-36 opacity-70">
           <Lottie animationData={RunningJson} loop={true} />
         </div>
         <div className="hidden md:block relative">
@@ -131,9 +146,9 @@ const Projects = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative">
-          <div className="absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-blue-600 to-blue-300"></div>
+          <div className="absolute left-6.5 top-0 h-full w-1 bg-gradient-to-b from-blue-600 to-blue-300"></div>
 
-          <div className="space-y-8 pl-16">
+          <div className="space-y-8 pl-9">
             {projects.map((project, index) => {
               const isVisible = visibleItems.includes(index);
 
@@ -150,7 +165,7 @@ const Projects = () => {
                   }`}
                   style={{ transitionDelay: `${index * 80}ms` }}
                 >
-                  <div className="absolute -left-2.5 top-6 w-5 h-5 bg-blue-600 rounded-full ring-4 ring-white shadow"></div>
+                  <div className="absolute -left-4.5 top-6 w-5 h-5 bg-blue-600 rounded-full ring-4 ring-white shadow"></div>
 
                   <div className="bg-white rounded-xl p-5 shadow-md border border-gray-200">
                     <h3 className="text-lg font-semibold text-teal-600 mb-1">

@@ -58,7 +58,12 @@ const Skills = () => {
       {/* LOTTIE */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="w-[100%] sm:w-96 md:w-[50%] opacity-[0.06]">
-          <Lottie animationData={skillJson} loop autoplay />
+          <Lottie
+            animationData={skillJson}
+            loop
+            autoplay
+            className="scale-120 lg:scale-100"
+          />
         </div>
       </div>
 
@@ -71,7 +76,7 @@ const Skills = () => {
               Expertise
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg font-medium text-gray-600 max-w-3xl mx-auto">
             Technologies and tools I use to build scalable, performant, and
             user-focused applications.
           </p>
@@ -129,5 +134,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-
