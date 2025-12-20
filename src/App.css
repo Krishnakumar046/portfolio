@@ -14,3 +14,15 @@
 .animate-fade-in {
   animation: fade-in 0.8s ease forwards;
 }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(-56%);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
