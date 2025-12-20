@@ -1,9 +1,37 @@
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 const Form = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_rvl5vhy",
+        "template_0sa6fl7",
+        form.current,
+        "mx34e0NWNcJxnc14l"
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          alert("Message sent successfully!");
+          form.current?.reset();
+        },
+        (error) => {
+          console.log("Email error:", error.text);
+          alert("Failed to send the message. Try again later.");
+        }
+      );
+  };
   return (
     <Wrapper>
-      <form className="form">
+      <form ref={form} onSubmit={sendEmail} className="form">
         <h3>
           Contact{" "}
           <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
@@ -15,13 +43,28 @@ const Form = () => {
         <p>Have a project or question? Let’s talk.</p>
 
         <div className="row">
-          <input type="text" placeholder="First name" />
-          <input type="text" placeholder="Last name" />
+          <input
+            type="text"
+            name="full_name"
+            placeholder="Enter your Full name..."
+            required
+          />
+          <input
+            type="number"
+            name="phone_number"
+            placeholder="Enter your Phone Number...."
+            required
+          />
         </div>
 
-        <input type="email" placeholder="Email address" />
-        <input type="text" placeholder="Subject" />
-        <textarea placeholder="Your message..." />
+        <input
+          type="email"
+          name="user_email"
+          placeholder="Enter your Email Address..."
+          required
+        />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Your message..." required />
 
         <button type="submit">Send Message</button>
       </form>
