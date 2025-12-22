@@ -2,7 +2,6 @@ import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
 import officeJson from "../assets/lottie/office.json";
 import { motion, easeOut } from "framer-motion";
-import type { Variants } from "framer-motion";
 
 const Experience = () => {
   const experiences = [
