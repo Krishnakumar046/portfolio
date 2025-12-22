@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { Download, Github, Linkedin } from "lucide-react";
 import { manJson } from "./Lottiefiles/ManJson";
-import { SummaryManJson } from "./Lottiefiles/SummaryManjson";
+import { SummaryManJson } from "../Component/Lottiefiles/SummaryManjson";
 import TextRunning from "./animated/TextRunningAnimation";
 import { domAnimation, LazyMotion, m } from "motion/react";
 
