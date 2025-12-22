@@ -5,46 +5,106 @@ const skillsData = [
   {
     title: "Frontend Development",
     skills: [
-      { name: "React", icon: "/images/icons8-react-100.png" },
-      { name: "Next.js", icon: "/images/icons8-nextjs-96.png" },
-      { name: "TypeScript", icon: "/images/icons8-typescript-96.png" },
-      { name: "JavaScript", icon: "/images/icons8-javascript-96.png" },
-      { name: "HTML5", icon: "/images/icons8-html-100.png" },
-      { name: "CSS3", icon: "/images/icons8-css-96.png" },
-      { name: "Tailwind CSS", icon: "/images/icons8-tailwindcss-100.png" },
-      { name: "Bootstrap", icon: "/images/icons8-bootstrap-100.png" },
+      {
+        name: "React",
+        icon: `${import.meta.env.BASE_URL}images/icons8-react-100.png`,
+      },
+      {
+        name: "Next.js",
+        icon: `${import.meta.env.BASE_URL}images/icons8-nextjs-96.png`,
+      },
+      {
+        name: "TypeScript",
+        icon: `${import.meta.env.BASE_URL}images/icons8-typescript-96.png`,
+      },
+      {
+        name: "JavaScript",
+        icon: `${import.meta.env.BASE_URL}images/icons8-javascript-96.png`,
+      },
+      {
+        name: "HTML5",
+        icon: `${import.meta.env.BASE_URL}images/icons8-html-100.png`,
+      },
+      {
+        name: "CSS3",
+        icon: `${import.meta.env.BASE_URL}images/icons8-css-96.png`,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: `${import.meta.env.BASE_URL}images/icons8-tailwindcss-100.png`,
+      },
+      {
+        name: "Bootstrap",
+        icon: `${import.meta.env.BASE_URL}images/icons8-bootstrap-100.png`,
+      },
     ],
   },
   {
     title: "State Management",
     skills: [
-      { name: "Redux", icon: "/images/icons8-redux-96.png" },
-      { name: "Zustand", icon: "/images/icons8-bear-80.png" },
-      { name: "Context API", icon: "/images/icons8-api-100.png" },
+      {
+        name: "Redux",
+        icon: `${import.meta.env.BASE_URL}images/icons8-redux-96.png`,
+      },
+      {
+        name: "Zustand",
+        icon: `${import.meta.env.BASE_URL}images/icons8-bear-80.png`,
+      },
+      {
+        name: "Context API",
+        icon: `${import.meta.env.BASE_URL}images/icons8-api-100.png`,
+      },
     ],
   },
   {
     title: "Backend & APIs",
     skills: [
-      { name: "Axios", icon: "/images/icons8-api-100.png" },
-      { name: "Node.js", icon: "/images/icons8-nodejs-96.png" },
-      { name: "Express.js", icon: "/images/icons8-express-js-100.png" },
+      {
+        name: "Axios",
+        icon: `${import.meta.env.BASE_URL}images/icons8-api-100.png`,
+      },
+      {
+        name: "Node.js",
+        icon: `${import.meta.env.BASE_URL}images/icons8-nodejs-96.png`,
+      },
+      {
+        name: "Express.js",
+        icon: `${import.meta.env.BASE_URL}images/icons8-express-js-100.png`,
+      },
     ],
   },
   {
     title: "Tools & Workflow",
     skills: [
-      { name: "Git", icon: "/images/icons8-git-96.png" },
-      { name: "GitHub", icon: "/images/icons8-github-100.png" },
-      { name: "VS Code", icon: "/images/icons8-visual-studio-96.png" },
-      { name: "npm", icon: "/images/icons8-npm-96.png" },
+      {
+        name: "Git",
+        icon: `${import.meta.env.BASE_URL}images/icons8-git-96.png`,
+      },
+      {
+        name: "GitHub",
+        icon: `${import.meta.env.BASE_URL}images/icons8-github-100.png`,
+      },
+      {
+        name: "VS Code",
+        icon: `${import.meta.env.BASE_URL}images/icons8-visual-studio-96.png`,
+      },
+      {
+        name: "npm",
+        icon: `${import.meta.env.BASE_URL}images/icons8-npm-96.png`,
+      },
     ],
   },
   {
     title: "Data & Visualization",
     skills: [
-      { name: "AG Grid", icon: "/images/icons8-table-grid-100.png" },
-      { name: "Charts.js", icon: "/images/icons8-chart-100.png" },
+      {
+        name: "AG Grid",
+        icon: `${import.meta.env.BASE_URL}images/icons8-table-grid-100.png`,
+      },
+      {
+        name: "Charts.js",
+        icon: `${import.meta.env.BASE_URL}images/icons8-chart-100.png`,
+      },
     ],
   },
 ];
