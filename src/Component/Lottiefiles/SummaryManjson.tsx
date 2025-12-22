@@ -1,4 +1,4 @@
-export const SummaryManJson = {
+ const SummaryManJson = {
   nm: "Comp 2",
   ddd: 0,
   h: 1080,
@@ -32906,3 +32906,4 @@ export const SummaryManJson = {
   ],
   assets: [],
 };
+export default SummaryManJson;
