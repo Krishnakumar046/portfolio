@@ -9,7 +9,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import HeaderAnimation from "./Lottiefiles/NameSummaryJson";
+import HeaderAnimation from "./Lottiefiles/NameSummaryJson.tsx"; 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
