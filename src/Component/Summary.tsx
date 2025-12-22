@@ -1,6 +1,5 @@
 import Lottie from "lottie-react";
-import { DeveloperGif } from "./Lottiefiles/DeveloperGifJson";
-import { ArrowDown, Download, Github, Linkedin, Twitter } from "lucide-react";
+import { Download, Github, Linkedin } from "lucide-react";
 import { manJson } from "./Lottiefiles/ManJson";
 import { SummaryManJson } from "./Lottiefiles/SummaryManjson";
 import TextRunning from "./animated/TextRunningAnimation";
