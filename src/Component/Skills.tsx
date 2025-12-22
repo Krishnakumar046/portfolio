@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import SkillJson from "../Component/Lottiefiles/SkillJson";
+import SkillJson from "./Lottiefiles/SkillJson";
 
 const skillsData = [
   {
