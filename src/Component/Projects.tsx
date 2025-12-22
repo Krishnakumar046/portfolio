@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./animated/ProjectCard";
 import Lottie from "lottie-react";
-import RunningJson from "./Lottiefiles/RunningJson.tsx";
+import RunningJson from "./Lottiefiles/RunningJson";
 import ExperiencesJson from "./Lottiefiles/ExperienceChat.tsx"; 
 
 const projects = [
