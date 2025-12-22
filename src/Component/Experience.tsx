@@ -1,7 +1,7 @@
 import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
 import officeJson from "../assets/lottie/office.json";
-import { motion, easeInOut } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 const Experience = () => {
@@ -55,13 +55,22 @@ integration.`,
     },
   ];
 
-  const cardVariants: Variants = {
-    hiddenLeft: { opacity: 0, x: -200 },
-    hiddenRight: { opacity: 0, x: 200 },
+  const cardVariants = {
+    hiddenLeft: {
+      opacity: 0,
+      x: -20,
+    },
+    hiddenRight: {
+      opacity: 0,
+      x: 20,
+    },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.5, ease: easeInOut }, // ✅ works
+      transition: {
+        duration: 0.6,
+        ease: easeOut,
+      },
     },
   };
 
@@ -98,8 +107,8 @@ integration.`,
                       variants={cardVariants}
                       initial={index % 2 === 0 ? "hiddenLeft" : "hiddenRight"}
                       whileInView="visible"
-                      viewport={{ once: false, amount: 0.3 }}
-                      className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative"
+                      viewport={{ once: true, margin: "-80px" }}
+                      className="bg-gradient-to-r from-white to-gray-50 rounded-xl p-8 shadow-lg border border-gray-100 relative will-change-transform"
                     >
                       {/* Header */}
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">

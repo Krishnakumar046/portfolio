@@ -110,9 +110,9 @@ const Projects = () => {
             Selected projects showcasing real-world problem solving, performance
             optimization, and scalable architecture.
           </p>
-          <div className="absolute top-6 right-0 w-72 h-56 opacity-50 pointer-events-none select-none">
+          {/* <div className="absolute top-6 right-0 w-72 h-56 opacity-50 pointer-events-none select-none">
             <Lottie animationData={experiencesJson} loop={true} />
-          </div>
+          </div> */}
         </div>
         {/* DESKTOP */}
         <div className=" hidden md:block w-50 h-36 opacity-70">

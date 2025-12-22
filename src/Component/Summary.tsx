@@ -8,7 +8,7 @@ import { domAnimation, LazyMotion, m } from "motion/react";
 const Summary = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume/KRISHNAKUMARRESUME.pdf";
+    link.href = `${import.meta.env.BASE_URL}resume/KRISHNAKUMARRESUME.pdf`;
     link.download = "KrishnaKumar-Resume.pdf";
     document.body.appendChild(link);
     link.click();
