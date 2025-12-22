@@ -1,6 +1,6 @@
 import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
-import { OfficeJson } from "./Lottiefiles/OfficeJson";
+import OfficeJson from "../Component/Lottiefiles/OfficeJson";
 import { motion, easeInOut } from "framer-motion";
 import type { Variants } from "framer-motion";
 

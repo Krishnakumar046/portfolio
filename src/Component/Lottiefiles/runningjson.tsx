@@ -1,4 +1,4 @@
-export const RunningJson = {
+ const RunningJson = {
   v: "5.5.2",
   fr: 50,
   ip: 0,
@@ -2185,3 +2185,4 @@ export const RunningJson = {
   ],
   markers: [],
 };
+export default RunningJson

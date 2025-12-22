@@ -1,4 +1,4 @@
-export const OfficeJson = {
+const OfficeJson = {
   v: "4.8.0",
   meta: { g: "LottieFiles AE 3.0.0", a: "", k: "", d: "", tc: "#FFFFFF" },
   fr: 24,
@@ -40711,3 +40711,4 @@ export const OfficeJson = {
   ],
   markers: [],
 };
+export default OfficeJson;

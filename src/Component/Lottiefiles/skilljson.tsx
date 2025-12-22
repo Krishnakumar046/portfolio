@@ -1,4 +1,4 @@
-export const skillJson = {
+ const SkillJson = {
   "v": "4.8.0",
   "meta": { "g": "LottieFiles AE 3.5.4", "a": "", "k": "", "d": "", "tc": "" },
   "fr": 60,
@@ -12457,3 +12457,4 @@ export const skillJson = {
   ],
   "markers": []
 }
+export default SkillJson;

@@ -1,4 +1,4 @@
-export const manJson = {
+ const ManJson = {
   v: "5.5.7",
   meta: { g: "LottieFiles AE 0.1.20", a: "", k: "", d: "", tc: "" },
   fr: 29.9700012207031,
@@ -720,3 +720,4 @@ export const manJson = {
   ],
   markers: [],
 };
+export default ManJson;

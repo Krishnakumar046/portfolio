@@ -1,4 +1,4 @@
-export const MailMan = {
+ const MailMan = {
   v: "5.12.1",
   fr: 30,
   ip: 0,
@@ -18153,3 +18153,4 @@ export const MailMan = {
   markers: [],
   props: {},
 };
+export default MailMan;

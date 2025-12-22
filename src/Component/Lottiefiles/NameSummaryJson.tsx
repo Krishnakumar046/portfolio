@@ -1,4 +1,4 @@
-export const HeaderAnimation = {
+const HeaderAnimation = {
   nm: "F6080421N35",
   ddd: 0,
   h: 500,
@@ -8113,3 +8113,4 @@ export const HeaderAnimation = {
     },
   ],
 };
+export default HeaderAnimation;

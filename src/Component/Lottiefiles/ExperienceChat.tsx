@@ -1,4 +1,4 @@
-export const ExperiencesJson = {
+const ExperiencesJson = {
   v: "5.9.6",
   fr: 30,
   ip: 0,
@@ -12868,3 +12868,4 @@ export const ExperiencesJson = {
   ],
   markers: [],
 };
+export default ExperiencesJson;

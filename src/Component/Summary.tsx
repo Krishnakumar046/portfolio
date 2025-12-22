@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import { Download, Github, Linkedin } from "lucide-react";
-import { manJson } from "./Lottiefiles/ManJson";
+import ManJson from "../Component/Lottiefiles/ManJson";
 import SummaryManJson from "../Component/Lottiefiles/SummaryManjson";
 import TextRunning from "./animated/TextRunningAnimation";
 import { domAnimation, LazyMotion, m } from "motion/react";
@@ -28,7 +28,7 @@ const Summary = () => {
                 <div className="w-full h-full rounded-full bg-white flex items-center justify-center mr-0.5">
                   <div className="w-28 h-28 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 flex items-center justify-center overflow-visible">
                     <Lottie
-                      animationData={manJson}
+                      animationData={ManJson}
                       loop={true}
                       className="scale-185 mr-2.5"
                     />

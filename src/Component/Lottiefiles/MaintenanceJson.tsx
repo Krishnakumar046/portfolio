@@ -1,4 +1,4 @@
-export const maintainanceJson = {
+const MaintainanceJson = {
   v: "4.8.0",
   meta: { g: "LottieFiles AE ", a: "", k: "", d: "", tc: "" },
   fr: 25,
@@ -11664,3 +11664,4 @@ export const maintainanceJson = {
   ],
   markers: [],
 };
+export default MaintainanceJson;

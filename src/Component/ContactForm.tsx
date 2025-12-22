@@ -1,7 +1,7 @@
 import { Locate, Mail, Phone } from "lucide-react";
 import Lottie from "lottie-react";
 import Form from "./MailMessageForm";
-import { MailMan } from "./Lottiefiles/MailLottieJson";
+import MailMan from "../Component/Lottiefiles/MailLottieJson";
 
 const ContactForm = () => {
   const contactMethods = [
