@@ -14,7 +14,7 @@ const ContactForm = () => {
     {
       label: "Phone",
       icon: Phone,
-      text: "+91 9538976046",
+      text: "+91 8825726929",
       color: "text-green-600",
     },
     {
