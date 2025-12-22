@@ -53,25 +53,13 @@ const Summary = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    I am a Front-End Developer with a strong focus on modern web
-                    technologies, including React.js, Next.js, JavaScript,
-                    TypeScript, Tailwind CSS, HTML, and CSS. I specialize in
-                    building responsive, scalable, and high-performance user
-                    interfaces that deliver seamless user experiences.
-                  </p>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    I enjoy transforming complex requirements into clean,
-                    intuitive designs and writing maintainable, reusable code. I
-                    actively collaborate with back-end teams to integrate APIs,
-                    optimize data flow, and ensure smooth end-to-end
-                    functionality across applications.
-                  </p>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    With a strong foundation in front-end architecture and UI/UX
-                    best practices, I aim to leverage my technical skills in a
-                    challenging role where I can contribute to building robust
-                    web applications while continuously learning and evolving
-                    with modern technologies.
+                    Front-End Developer specializing in React.js, Next.js,
+                    JavaScript, TypeScript, and Tailwind CSS. I build
+                    responsive, scalable, and high-performance user interfaces
+                    with a strong focus on clean design, usability, and
+                    maintainable code. Experienced in API integration and
+                    collaborating with back-end teams to deliver seamless,
+                    end-to-end web solutions.
                   </p>
                 </m.div>
               </LazyMotion>
@@ -85,25 +73,13 @@ const Summary = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                    I am a Front-End Developer specializing in modern web
-                    technologies such as React.js, Next.js, JavaScript,
-                    TypeScript, Tailwind CSS, HTML, and CSS. I focus on building
+                    Front-End Developer specializing in React.js, Next.js,
+                    JavaScript, TypeScript, and Tailwind CSS. I build
                     responsive, scalable, and high-performance user interfaces
-                    that deliver seamless user experiences.
-                  </p>
-
-                  <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                    I enjoy converting complex requirements into clean,
-                    intuitive designs and writing maintainable, reusable code. I
-                    work closely with back-end teams to integrate APIs, optimize
-                    data flow, and ensure smooth end-to-end functionality.
-                  </p>
-
-                  <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                    With a strong foundation in front-end architecture and UI/UX
-                    best practices, I am eager to contribute to building robust
-                    web applications while continuously learning and adapting to
-                    evolving technologies.
+                    with a strong focus on clean design, usability, and
+                    maintainable code. Experienced in API integration and
+                    collaborating with back-end teams to deliver seamless,
+                    end-to-end web solutions.
                   </p>
                 </m.div>
               </LazyMotion>
