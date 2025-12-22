@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./animated/ProjectCard";
 import Lottie from "lottie-react";
-import RunningJson from "./Lottiefiles/RunningJson";
-import ExperiencesJson from "./Lottiefiles/ExperienceChat.tsx"; 
+import runningJson from "../assets/lottie/running.json";
+import experiencesJson from "../assets/lottie/experience.json";
 
 const projects = [
   {
@@ -111,12 +111,12 @@ const Projects = () => {
             optimization, and scalable architecture.
           </p>
           <div className="absolute top-6 right-0 w-72 h-56 opacity-50 pointer-events-none select-none">
-            <Lottie animationData={ExperiencesJson} loop={true} />
+            <Lottie animationData={experiencesJson} loop={true} />
           </div>
         </div>
         {/* DESKTOP */}
         <div className=" hidden md:block w-50 h-36 opacity-70">
-          <Lottie animationData={RunningJson} loop={true} />
+          <Lottie animationData={runningJson} loop={true} />
         </div>
         <div className="hidden md:block relative">
           {/* TOP HORIZONTAL LINE */}

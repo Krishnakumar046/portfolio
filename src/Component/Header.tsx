@@ -9,7 +9,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import HeaderAnimation from "./Lottiefiles/NameSummaryJson"; 
+import headerAnimation from "../assets/lottie/namesummary.json";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +54,7 @@ const Header = () => {
             <div className="w-15 h-30 relative flex items-center justify-center">
               <div className="absolute top-6">
                 <Lottie
-                  animationData={HeaderAnimation}
+                  animationData={headerAnimation}
                   loop={true}
                   className="scale-185 mr-2.5"
                 />

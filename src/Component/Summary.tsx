@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { Download, Github, Linkedin } from "lucide-react";
-import ManJson from "./Lottiefiles/ManJson";
-import SummaryManJson from "./Lottiefiles/SummaryManjson"; 
+import manJson from "../assets/lottie/man.json";
+import summaryManJson from "../assets/lottie/summary.json";
 import TextRunning from "./animated/TextRunningAnimation";
 import { domAnimation, LazyMotion, m } from "motion/react";
 
@@ -28,7 +28,7 @@ const Summary = () => {
                 <div className="w-full h-full rounded-full bg-white flex items-center justify-center mr-0.5">
                   <div className="w-28 h-28 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 flex items-center justify-center overflow-visible">
                     <Lottie
-                      animationData={ManJson}
+                      animationData={manJson}
                       loop={true}
                       className="scale-185 mr-2.5"
                     />
@@ -117,7 +117,7 @@ const Summary = () => {
         <div className="hidden md:block relative  md:w-[50%] px-3 sm:px-6 lg:px-4 py-10">
           <div className="absolute -top-30">
             <Lottie
-              animationData={SummaryManJson}
+              animationData={summaryManJson}
               loop={true}
               style={{ height: "160%" }}
             />

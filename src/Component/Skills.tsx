@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import SkillJson from "./Lottiefiles/SkillJson"; 
+import skillJson from "../assets/lottie/skill.json";
 
 const skillsData = [
   {
@@ -59,7 +59,7 @@ const Skills = () => {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="w-[100%] sm:w-96 md:w-[50%] opacity-[0.06]">
           <Lottie
-            animationData={SkillJson}
+            animationData={skillJson}
             loop
             autoplay
             className="scale-120 lg:scale-100"

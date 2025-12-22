@@ -1,6 +1,6 @@
 import { Calendar, MapPin, ExternalLink, Briefcase } from "lucide-react";
 import Lottie from "lottie-react";
-import OfficeJson from "./Lottiefiles/OfficeJson"; 
+import officeJson from "../assets/lottie/office.json";
 import { motion, easeInOut } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -179,7 +179,7 @@ integration.`,
                       {/* Lottie Illustration for odd cards */}
                       {index % 2 === 1 && (
                         <div className="absolute -top-62 md:-bottom-60 -right-7 md:right-15 w-96 h-64 opacity-10 md:opacity-20 pointer-events-none">
-                          <Lottie animationData={OfficeJson} loop={true} />
+                          <Lottie animationData={officeJson} loop={true} />
                         </div>
                       )}
                     </motion.div>

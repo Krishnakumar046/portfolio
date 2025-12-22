@@ -1,7 +1,7 @@
 import { Locate, Mail, Phone } from "lucide-react";
 import Lottie from "lottie-react";
 import Form from "./MailMessageForm";
-import MailMan from "./Lottiefiles/MailLottieJson"; 
+import mailMan from "../assets/lottie/maillottie.json";
 
 const ContactForm = () => {
   const contactMethods = [
@@ -78,7 +78,7 @@ const ContactForm = () => {
           <div className="relative flex justify-center lg:justify-start">
             {/* DESKTOP LOTTIE (RIGHT SIDE) */}
             <div className="hidden lg:block absolute -right-32 top-1/2 -translate-y-1/2 w-[360px] opacity-90 pointer-events-none">
-              <Lottie animationData={MailMan} loop />
+              <Lottie animationData={mailMan} loop />
             </div>
 
             {/* FORM CARD */}
@@ -86,7 +86,7 @@ const ContactForm = () => {
               {/* MOBILE BACKGROUND LOTTIE */}
               <div className=" absolute inset-0 top-30 lg:hidden  pointer-events-none">
                 <Lottie
-                  animationData={MailMan}
+                  animationData={mailMan}
                   loop
                   style={{ filter: "blur(1.5px)" }}
                   className="scale-150"
