@@ -44,7 +44,7 @@ const ContactForm = () => {
 
               <div className="mt-4 mb-6 h-1 w-20 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600" />
 
-              <p className="max-w-xl text-gray-600 font-medium text-lg leading-relaxed">
+              <p className="max-w-xl text-gray-600 font-medium text-[1.1rem] leading-relaxed">
                 Feel free to reach out. Whether you have a project idea, a
                 question, or just want to connect — I’ll get back to you soon.
               </p>
@@ -62,10 +62,10 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-gray-400">
+                    <p className="text-[0.9rem] uppercase tracking-wide text-gray-400">
                       {method.label}
                     </p>
-                    <p className="text-sm sm:text-base font-medium text-gray-800">
+                    <p className="text-[1.1rem] sm:text-base font-medium text-gray-800">
                       {method.text}
                     </p>
                   </div>

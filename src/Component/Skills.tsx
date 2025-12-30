@@ -130,13 +130,13 @@ const Skills = () => {
       <div className="relative max-w-7xl mx-auto px-4">
         {/* HEADER */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl  font-bold text-gray-900 mb-6">
             Skills &{" "}
             <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
               Expertise
             </span>
           </h2>
-          <p className="text-lg font-medium text-gray-600 max-w-3xl mx-auto">
+          <p className="text-[1.1rem] font-medium text-gray-600 max-w-3xl mx-auto">
             Technologies and tools I use to build scalable, performant, and
             user-focused applications.
           </p>
