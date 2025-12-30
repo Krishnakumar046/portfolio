@@ -27,9 +27,14 @@ const ProjectCard = ({ project }: any) => {
         </svg>
       </div>
 
-      <h1 className="text-xl font-bold text-slate-800 mb-2">{project.title}</h1>
+      <h1 className="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+        {project.title}
+      </h1>
+      <div className="w-30 h-0.5 bg-gradient-to-r from-violet-400 to-indigo-400 rounded-full mb-8"></div>
 
-      <p className="text-sm text-slate-800 inline-block">{project.points}</p>
+      <p className="text-[0.92rem] leading-relaxed font-medium text-gray-600 inline-block">
+        {project.points}
+      </p>
     </div>
   );
 };

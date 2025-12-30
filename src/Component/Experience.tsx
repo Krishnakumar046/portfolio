@@ -7,7 +7,7 @@ const Experience = () => {
   const experiences = [
     {
       title: "Frontend Developer - (React.js & Next.js)",
-      company: "Populus Enpowerment network",
+      company: "Populus Empowerment network",
       location: "Teynampet,Chennai",
       period: " June 2025 - Present",
       type: "Full-time",
@@ -32,7 +32,7 @@ UI/UX and performance improvements.`,
     },
     {
       title: "Frontend Developer - (internship)",
-      company: "Populus Enpowerment network",
+      company: "Populus Empowerment network",
       location: "Teynampet,Chennai",
       period: "January 2025 - June 2025",
       type: "Internship",
@@ -83,7 +83,7 @@ integration.`,
               Experience
             </span>
           </h2>
-          <p className="text-lg font-medium text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[1.1rem] font-medium text-gray-600 max-w-2xl mx-auto">
             My professional journey in frontend development and the impact I've
             made
           </p>

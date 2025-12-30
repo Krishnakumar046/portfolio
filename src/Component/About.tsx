@@ -42,7 +42,7 @@ const About = () => {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <p className="text-lg">
+                    <p className="text-[1.1rem] text-gray-700 mb-6 leading-relaxed">
                       I’m a Front-End Developer focused on building scalable,
                       high-performance web applications using modern JavaScript
                       technologies. My core expertise lies in React.js, Next.js,
@@ -50,7 +50,7 @@ const About = () => {
                       accessible, and user-centric interfaces.
                     </p>
 
-                    <p>
+                    <p className="text-[1.1rem] text-gray-700 mb-6 leading-relaxed">
                       I have hands-on experience developing and maintaining
                       end-to-end web applications, working across
                       component-based architectures, API integrations, and
@@ -59,7 +59,7 @@ const About = () => {
                       clean, reusable code across projects.
                     </p>
 
-                    <p>
+                    <p className="text-[1.1rem] text-gray-700 mb-6 leading-relaxed">
                       My technical skill set includes working with Redux,
                       Zustand, and Context API for state management, integrating
                       third-party libraries, implementing dynamic data flows,
@@ -67,7 +67,7 @@ const About = () => {
                       sharing, and interactive visualizations.
                     </p>
 
-                    <p>
+                    <p className="text-[1.1rem] text-gray-700 mb-6 leading-relaxed">
                       I hold a Bachelor’s degree in Electronics and
                       Communication Engineering from Anna University. My
                       academic foundation, combined with practical development
@@ -86,7 +86,7 @@ const About = () => {
                   <div className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-gray-600 font-medium">
+                  <div className="text-[0.8rem] text-gray-600 font-medium">
                     {stat.label}
                   </div>
                 </div>

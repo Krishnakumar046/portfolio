@@ -6,7 +6,7 @@ import runningJson from "../assets/lottie/running.json";
 const projects = [
   {
     sno: "01",
-    title: "STAND FOR TAMILNADU",
+    title: "Tamilnadu Poradum",
     duration: "Feb 2025 – Mar 2025",
     tech: ["Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
     points: [
@@ -93,7 +93,7 @@ const Projects = () => {
               Experience
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-[1.1rem] font-medium text-gray-600 max-w-3xl mx-auto">
             Selected projects showcasing real-world problem solving, performance
             optimization, and scalable architecture.
           </p>
@@ -105,7 +105,7 @@ const Projects = () => {
               Experience
             </span>
           </h2>
-          <p className="text-lg font-medium text-gray-600 max-w-3xl mx-auto">
+          <p className="text-[1.1rem] font-medium text-gray-600 max-w-3xl mx-auto">
             Selected projects showcasing real-world problem solving, performance
             optimization, and scalable architecture.
           </p>

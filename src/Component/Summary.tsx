@@ -35,7 +35,7 @@ const Summary = () => {
                   </div>
                 </div>
               </div>
-              <h1 className="text-4xl text-center sm:text-5xl lg:text-6xl font-bold text-slate-800 mb-4">
+              <h1 className="text-4xl text-center sm:text-5xl lg:text-6xl font-medium text-slate-800 mb-4">
                 Krishna kumar
               </h1>
               <p className="text-xl text-center sm:text-2xl text-teal-600 font-medium mb-6">
@@ -51,7 +51,7 @@ const Summary = () => {
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  <p className="text-[1.1rem] text-gray-700 leading-relaxed mb-6">
                     Front-End Developer specializing in React.js, Next.js,
                     JavaScript, TypeScript, and Tailwind CSS. I build
                     responsive, scalable, and high-performance user interfaces
